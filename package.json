@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings=0",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "0.7.0",
@@ -39,6 +40,8 @@
     "eslint-plugin-react": "7.34.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-tailwindcss": "3.15.1",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.7",
     "prettier": "3.2.5",
     "prettier-plugin-astro": "0.14.0",
     "prettier-plugin-tailwindcss": "0.6.4"
