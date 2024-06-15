@@ -1,16 +1,20 @@
 ---
+import { getCollection } from 'astro:content'
+import Layout from '../shared/base-layout.astro'
 
+const posts = await getCollection('posts')
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1 class='text-3xl'>Astro</h1>
-	</body>
-</html>
+<Layout>
+	<ul>
+		{
+			posts.map((post) => (
+				<li class="text-lg">
+					<a class="text-gray-600 hover:underline" href={`/posts/${post.slug}`}>
+						{post.data.title}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</Layout>
