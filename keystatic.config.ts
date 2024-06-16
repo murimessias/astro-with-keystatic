@@ -3,7 +3,10 @@ import { config, fields, collection } from '@keystatic/core'
 
 export default config({
 	storage: {
-		kind: 'local',
+		kind: 'cloud',
+	},
+	cloud: {
+		project: 'murilo-messias/astro-with-keystatic',
 	},
 	collections: {
 		posts: collection({
