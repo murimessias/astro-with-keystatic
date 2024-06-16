@@ -1,22 +1,26 @@
 ---
-import { getCollection } from 'astro:content'
-import Layout from '../../shared/base-layout.astro'
+import { getCollection, getEntryBySlug } from 'astro:content'
+import BaseLayout from '#/shared/base-layout.astro'
+
+const { slug } = Astro.params
+if (!slug) throw new Error('Slug is required')
+
+const post = await getEntryBySlug('posts', slug)
+if (!post) throw new Error('Entry not found')
+
+const { Content } = await post.render()
 
 export async function getStaticPaths() {
-	const blogEntries = await getCollection('posts')
-	return blogEntries.map((entry) => ({
+	const posts = await getCollection('posts')
+	return posts.map((entry) => ({
 		params: { slug: entry.slug },
-		props: { entry },
 	}))
 }
-
-const { entry } = Astro.props
-const { Content } = await entry.render()
 ---
 
-<Layout>
-	<h1 class="mb-4 text-xl">{entry.data.title}</h1>
+<BaseLayout>
+	<h1 class="mb-4 text-xl">{post.data.title}</h1>
 	<div class="prose">
 		<Content />
 	</div>
-</Layout>
+</BaseLayout>
