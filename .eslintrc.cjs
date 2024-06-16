@@ -16,7 +16,12 @@ module.exports = {
 		},
 	},
 	plugins: ['import'],
-	extends: ['eslint:recommended', 'plugin:tailwindcss/recommended', 'prettier'],
+	extends: [
+		'eslint:recommended',
+		'plugin:tailwindcss/recommended',
+		'plugin:jsx-a11y/recommended',
+		'prettier',
+	],
 	rules: {
 		'no-empty-pattern': 'off',
 		'no-console': WARN,
@@ -70,7 +75,7 @@ module.exports = {
 		},
 		{
 			// React Files
-			extends: ['plugin:react/recommended', 'plugin:jsx-a11y/recommended'],
+			extends: ['plugin:react/recommended'],
 			files: ['*.tsx', '*.jsx'],
 			rules: {
 				'react/jsx-pascal-case': 'off',
