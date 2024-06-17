@@ -1,8 +1,10 @@
 ---
 import { getCollection, getEntryBySlug } from 'astro:content'
+import BaseHead from '#/shared/base-head.astro'
 import BaseLayout from '#/shared/base-layout.astro'
 
 const { slug } = Astro.params
+const url = Astro.url.pathname
 if (!slug) throw new Error('Slug is required')
 
 const post = await getEntryBySlug('posts', slug)
@@ -18,9 +20,17 @@ export async function getStaticPaths() {
 }
 ---
 
-<BaseLayout>
-	<h1 class="mb-4 text-xl">{post.data.title}</h1>
-	<div class="prose">
-		<Content />
-	</div>
-</BaseLayout>
+<html lang="en">
+	<head>
+		<BaseHead title={post.data.title} description="Post for Astro" />
+	</head>
+	<body>
+		<BaseLayout>
+			{url}
+			<h1 class="mb-4 text-xl">{post.data.title}</h1>
+			<div class="prose">
+				<Content />
+			</div>
+		</BaseLayout>
+	</body>
+</html>

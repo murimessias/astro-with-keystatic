@@ -2,26 +2,15 @@
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<main class="grid min-h-dvh">
-			<div class="container mx-auto grid grid-rows-[100px_1fr] gap-4">
-				<div class="flex items-end border-b border-black/15 py-4">
-					<a href="/" class="text-3xl font-bold hover:underline"
-						>Astro + Keystatic ⚡</a
-					>
-				</div>
-				<div>
-					<slot />
-				</div>
-			</div>
-		</main>
-	</body>
-</html>
+<main class="grid min-h-dvh">
+	<div class="container mx-auto grid grid-rows-[100px_1fr] gap-4">
+		<div class="flex items-end border-b border-black/15 py-4">
+			<a href="/" class="text-3xl font-bold hover:underline"
+				>Astro + Keystatic ⚡</a
+			>
+		</div>
+		<div>
+			<slot />
+		</div>
+	</div>
+</main>

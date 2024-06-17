@@ -3,14 +3,20 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
     "astro": "astro",
+    "build": "astro check && astro build",
+    "dev": "astro dev",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings=0",
     "lint:fix": "npm run lint -- --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "preview": "astro preview",
+    "start": "astro dev",
+    "test:e2e": "npm run test:e2e:dev --silent",
+    "test:e2e:dev": "playwright test --ui",
+    "test:e2e:install": "npx playwright install --with-deps chromium",
+    "test:e2e:run": "cross-env CI=true playwright test",
+    "type-check": "tsc --project tsconfig.json --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
   },
   "dependencies": {
     "@astrojs/check": "0.7.0",
@@ -32,7 +38,9 @@
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
+    "@playwright/test": "1.44.1",
     "@tailwindcss/typography": "0.5.13",
+    "@types/node": "20.14.2",
     "@typescript-eslint/eslint-plugin": "7.13.0",
     "@typescript-eslint/parser": "7.13.0",
     "eslint": "8.57.0",

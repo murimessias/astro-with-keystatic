@@ -9,6 +9,7 @@ import netlify from '@astrojs/netlify'
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://mm-astro-keystatic.netlify.app/',
 	integrations: [keystatic(), markdoc(), react(), tailwind(), mdx()],
 	output: 'hybrid',
 	markdown: {

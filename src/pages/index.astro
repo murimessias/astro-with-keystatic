@@ -1,20 +1,34 @@
 ---
 import { getCollection } from 'astro:content'
+import BaseHead from '#/shared/base-head.astro'
 import BaseLayout from '#/shared/base-layout.astro'
 
 const posts = await getCollection('posts')
 ---
 
-<BaseLayout>
-	<ul>
-		{
-			posts.map((post) => (
-				<li class="text-lg">
-					<a class="text-gray-600 hover:underline" href={`/posts/${post.slug}`}>
-						{post.data.title}
-					</a>
-				</li>
-			))
-		}
-	</ul>
-</BaseLayout>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Astro with Keystatic"
+			description="A blog with Astro and Keystatic"
+		/>
+	</head>
+	<body>
+		<BaseLayout>
+			<ul>
+				{
+					posts.map((post) => (
+						<li class="text-lg">
+							<a
+								class="text-gray-600 hover:underline"
+								href={`/posts/${post.slug}`}
+							>
+								{post.data.title}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</BaseLayout>
+	</body>
+</html>
