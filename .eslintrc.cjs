@@ -102,6 +102,11 @@ module.exports = {
 				extraFileExtensions: ['.astro'],
 			},
 		},
+		// Test Files
+		{
+			files: testFiles,
+			extends: ['plugin:playwright/recommended'],
+		},
 		{
 			files: ['**/*.ts?(x)', '**/*.js?(x)'],
 			excludedFiles: testFiles,
