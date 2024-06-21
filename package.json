@@ -4,8 +4,10 @@
   "version": "0.0.1",
   "scripts": {
     "astro": "astro",
+    "astro-check": "astro check",
     "build": "astro check && astro build",
     "dev": "astro dev",
+    "format": "prettier --write --ignore-unknown",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings=0",
     "lint:fix": "npm run lint -- --fix",
     "lint:knip": "knip",
@@ -29,13 +31,9 @@
     "@astrojs/tailwind": "5.1.0",
     "@keystatic/astro": "5.0.0",
     "@keystatic/core": "0.5.20",
-    "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
     "astro": "4.10.3",
     "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "tailwindcss": "3.4.4",
-    "typescript": "5.4.5"
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
@@ -43,6 +41,8 @@
     "@playwright/test": "1.44.1",
     "@tailwindcss/typography": "0.5.13",
     "@types/node": "20.14.2",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "7.13.0",
     "@typescript-eslint/parser": "7.13.1",
     "astro-eslint-parser": "1.0.2",
@@ -60,6 +60,8 @@
     "lint-staged": "15.2.7",
     "prettier": "3.2.5",
     "prettier-plugin-astro": "0.14.0",
-    "prettier-plugin-tailwindcss": "0.6.4"
+    "prettier-plugin-tailwindcss": "0.6.4",
+    "tailwindcss": "3.4.4",
+    "typescript": "5.4.5"
   }
 }

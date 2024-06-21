@@ -1,7 +1,0 @@
-{
-	"*.{css,scss,json,mdx,mdoc}": ["prettier --write --ignore-unknown"],
-	"*.{js,jsx,ts,tsx,astro}": [
-		"prettier --write --ignore-unknown",
-		"eslint --report-unused-disable-directives --max-warnings=0"
-	]
-}
