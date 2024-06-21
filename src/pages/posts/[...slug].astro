@@ -4,7 +4,6 @@ import BaseHead from '#/shared/base-head.astro'
 import BaseLayout from '#/shared/base-layout.astro'
 
 const { slug } = Astro.params
-const url = Astro.url.pathname
 if (!slug) throw new Error('Slug is required')
 
 const post = await getEntryBySlug('posts', slug)

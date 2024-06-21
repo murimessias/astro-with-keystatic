@@ -10,11 +10,17 @@ const lint = (filenames) =>
 		.map((f) => path.relative(process.cwd(), f))
 		.join(' ')}`
 
+const astroCheck = (filenames) =>
+	`npm run astro-check ${filenames
+		.map((f) => path.relative(process.cwd(), f))
+		.join(' ')}`
+
 const typeCheck = () => 'npm run type-check'
 
 const config = {
-	'*.{js,jsx,ts,tsx,astro}': [typeCheck, prettify, lint],
+	'*.astro': [astroCheck, prettify],
 	'*.{css,scss,json,mdx,mdoc}': [prettify],
+	'*.{js,jsx,ts,tsx}': [typeCheck, prettify, lint],
 }
 
 export default config
